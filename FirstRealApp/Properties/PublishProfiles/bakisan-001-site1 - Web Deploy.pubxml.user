@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAw5XbCFZI1keYc7c7EutHCwAAAAACAAAAAAAQZgAAAAEAACAAAACOeG3knR9qBNvbqF40KGKDy7Y8hcUqGO5azjw7cVOJEwAAAAAOgAAAAAIAACAAAAAsIlt5NqxN7Ybh6JBgIZb/7ipJwZZVUxRsokzW4ltPXiAAAABNQuOZWNdCy38GBXTeboR0aFElCzEoKJqNn60eptrRXkAAAABfq9V3XVDd2mUsnEKwhSaZtpJItkjsYnKwMWHRvmf7sLS2BdO/MRtwWQAA5LKtiyaxc8AIA33EIN4mSz/TUpeo</EncryptedPassword>
+    <History>True|2022-09-21T05:34:27.6425671Z;False|2022-09-21T07:33:55.1031746+02:00;False|2022-09-21T07:33:07.9178911+02:00;False|2022-09-20T23:27:54.0276041+02:00;False|2022-09-20T23:25:26.9414305+02:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="AppConnectionString">
+      <Value>Data Source=SQL5107.site4now.net%3bInitial Catalog=db_a8bd3a_vonapalusso%3bPassword=adminFTW88!</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
