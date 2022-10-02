@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using FirstRealApp.Interfaces;
 using FirstRealApp.Models.PoodleEntity;
+using FirstRealApp.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,14 +13,12 @@ namespace FirstRealApp.Controllers
     public class PoodleColorsController : ControllerBase
     {
         private readonly IPoodleColorsRepository _poodleColorsRepository;
-        private readonly IMapper _mapper;
 
-        public PoodleColorsController(IPoodleColorsRepository poodleColorsRepository, IMapper mapper)
+        public PoodleColorsController(IPoodleColorsRepository poodleColorsRepository)
         {
             _poodleColorsRepository = poodleColorsRepository;
-            _mapper = mapper;
+          
         }
-
 
         [HttpGet("{id}")]
 

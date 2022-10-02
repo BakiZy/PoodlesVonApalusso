@@ -1,7 +1,7 @@
-﻿using FirstRealApp.Interfaces;
-using FirstRealApp.Models;
+﻿using FirstRealApp.Models;
 using FirstRealApp.Models.PoodleEntity;
 using Microsoft.EntityFrameworkCore;
+using FirstRealApp.Services;
 
 namespace FirstRealApp.Repository
 {
@@ -33,7 +33,7 @@ namespace FirstRealApp.Repository
             _context.SaveChanges();
         }
 
-        public IQueryable<Poodle> GetAll()
+        public IQueryable<Poodle> GetAllPoodles()
         {
            return _context.Poodles.OrderBy(x => x.Id);
         }

@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using FirstRealApp.Controllers;
-using FirstRealApp.Interfaces;
 using FirstRealApp.Models;
 using FirstRealApp.Models.DTO_models.PoodleDTos;
 using FirstRealApp.Models.PoodleEntity;
 using FirstRealApp.Repository;
+using FirstRealApp.Services;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using System;

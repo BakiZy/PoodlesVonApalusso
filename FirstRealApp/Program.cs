@@ -4,7 +4,6 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using System.Text;
-using FirstRealApp.Interfaces;
 using FirstRealApp.Repository;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.OpenApi.Models;
@@ -17,7 +16,7 @@ ConfigurationManager configuration = builder.Configuration;
 // Add services to the container.
 
 //for entity framework
-builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("AppConnectionString")));
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("LocalConnectionString")));
 
 //for identity 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -104,7 +103,7 @@ builder.Services.AddSwaggerGen(c => {
 });
 builder.Services.AddScoped<IPoodlesRepository, PoodlesRepository>();
 builder.Services.AddScoped<IPoodleColorsRepository, PoodleColorsRepository>();
-builder.Services.AddScoped<IPoodleService, PoodleService>();
+builder.Services.AddScoped<IFilterService, FilterService>();
 builder.Services.AddScoped<IImagesRepository, ImagesRepository>();
 builder.Services.AddAutoMapper(typeof(PoodleProfile));
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WUQsdlbqGhI2Kwi3aqLr9KBxJbEX4F3HAnTBaXFaIls1C4aoJZUEoEe7LSvk3TTFSTVVKQ27f3ej8w/CxBY++Q==",
+  "dgSpecHash": "T5VtmWBpYw8eobPq5fJbbkZmIPPhdY5NrXTTfd8UD7vjq1jlxg5XUwhcrPHy0n9CD5RnJNj0JNu/NT4OuMM3GQ==",
   "success": true,
-  "projectFilePath": "F:\\Vezbanje codeZ\\c sharp\\New Stuff\\VonApalusso\\backup\\BackendSide\\XUnitTest\\XUnitTest.csproj",
+  "projectFilePath": "F:\\Vezbanje codeZ\\c sharp\\New Stuff\\VonApalusso\\BackendVonApalusso\\XUnitTest\\XUnitTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\milos\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\milos\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

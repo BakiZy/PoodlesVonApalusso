@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="IIS Web Application Name" description="" value="bakisan-001-site1" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^F:\\Vezbanje\ codeZ\\c\ sharp\\New\ Stuff\\VonApalusso\\BackendSide\\FirstRealApp\\obj\\Release\\net6\.0\\win-x86\\PubTmp\\Out\\$" />
-  </parameter>
-  <parameter name="FirstRealApp.Models.AppDbContext" description="" value="Data Source=SQL5107.site4now.net;Initial Catalog=db_a8bd3a_vonapalusso;User Id=db_a8bd3a_vonapalusso_admin;Password=adminFTW88!" tags="dbfullsql">
-    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^F:\\Vezbanje\ codeZ\\c\ sharp\\New\ Stuff\\VonApalusso\\BackendSide\\FirstRealApp\\obj\\Release\\net6\.0\\win-x86\\PubTmp\\EFSQLScripts\\FirstRealApp\.Models\.AppDbContext\.sql$" />
-  </parameter>
-</parameters>

@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using FirstRealApp.Interfaces;
 using FirstRealApp.Models.DTO_models.PoodleDTos;
 using FirstRealApp.Models.PoodleEntity;
+using FirstRealApp.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace FirstRealApp.Controllers
 {
@@ -34,13 +35,14 @@ namespace FirstRealApp.Controllers
         [Route("/api/poodles/list-sizes")]
         public IActionResult GetAllPoodleSizes()
         {
-            return Ok(_poodlesRepository.GetAllSizes());
+            return Ok( _poodlesRepository.GetAllSizes());
         }
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult GetAllPoodles()
+        public  IActionResult GetAllPoodles()
         {
-            return Ok(_poodlesRepository.GetAll().ProjectTo<PoodleDTO>(_mapper.ConfigurationProvider));
+            var poodles =  _poodlesRepository.GetAllPoodles();
+            return Ok(poodles.ProjectTo<PoodleDTO>(_mapper.ConfigurationProvider));
         }
 
 
