@@ -14,10 +14,10 @@ namespace FirstRealApp.Controllers
     [ApiController]
     public class FilterController : ControllerBase
     {
-        private readonly IPoodleService poodleService;
+        private readonly IFilterService poodleService;
         private readonly IMapper _mapper;
 
-        public FilterController(IPoodleService filterRepository, IMapper mapper)
+        public FilterController(IFilterService filterRepository, IMapper mapper)
         {
             poodleService = filterRepository;
             _mapper = mapper;

@@ -1,6 +1,6 @@
 ﻿using FirstRealApp.Models;
 
-namespace FirstRealApp.Interfaces
+namespace FirstRealApp.Services
 {
     public interface IImagesRepository
     {

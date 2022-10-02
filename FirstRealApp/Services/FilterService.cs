@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FirstRealApp.Services
 {
-    public class PoodleService : IPoodleService
+    public class FilterService : IFilterService
     {
         private readonly AppDbContext _context;
 
 
-        public PoodleService(AppDbContext context)
+        public FilterService(AppDbContext context)
         {
             _context = context;
         }
