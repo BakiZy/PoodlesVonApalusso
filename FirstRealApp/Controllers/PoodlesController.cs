@@ -33,15 +33,15 @@ namespace FirstRealApp.Controllers
         [HttpGet]
         [AllowAnonymous]
         [Route("/api/poodles/list-sizes")]
-        public async Task<ActionResult<List<PoodleSize>>> GetAllPoodleSizes()
+        public IActionResult GetAllPoodleSizes()
         {
-            return Ok(await _poodlesRepository.GetAllSizes());
+            return Ok( _poodlesRepository.GetAllSizes());
         }
         [HttpGet]
         [AllowAnonymous]
-        public async Task<ActionResult> GetAllPoodles()
+        public  IActionResult GetAllPoodles()
         {
-            var poodles = await _poodlesRepository.GetAllPoodles();
+            var poodles =  _poodlesRepository.GetAllPoodles();
             return Ok(poodles.ProjectTo<PoodleDTO>(_mapper.ConfigurationProvider));
         }
 
