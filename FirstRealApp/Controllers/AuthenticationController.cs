@@ -35,17 +35,17 @@ namespace FirstRealApp.Controllers
         [AllowAnonymous]
         [HttpPost]
         [Route("login")]
-        public  IActionResult Login([FromBody] LoginDTO model)
+        public async Task<ActionResult> Login([FromBody] LoginDTO model)
         {
             if (!ModelState.IsValid)
             {
                 return  BadRequest("Login parameters invalid.");
             }
-            var user = _userManager.FindByNameAsync(model.Username).GetAwaiter().GetResult();
-            if (user != null && _userManager.CheckPasswordAsync(user, model.Password).GetAwaiter().GetResult())
+            var user = await _userManager.FindByNameAsync(model.Username);
+            if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
 
-                var userRoles = _userManager.GetRolesAsync(user).GetAwaiter().GetResult();
+                var userRoles = await _userManager.GetRolesAsync(user);
 
                 var authClaims = new List<Claim>
                 {
@@ -68,7 +68,7 @@ namespace FirstRealApp.Controllers
                     
                     Token = new JwtSecurityTokenHandler().WriteToken(token),
                     Expiration = token.ValidTo,
-                    Role = _userManager.GetRolesAsync(user).GetAwaiter().GetResult().FirstOrDefault().ToString()
+                    Role =  _userManager.GetRolesAsync(user).GetAwaiter().GetResult().FirstOrDefault().ToString()
                 }) ;
             }
             return  Unauthorized("login failed");
@@ -98,14 +98,14 @@ namespace FirstRealApp.Controllers
         [HttpPost]
         [Route("register")]
         //registering normal user
-        public IActionResult Register([FromBody] RegisterDTO model)
+        public async Task<ActionResult> Register([FromBody] RegisterDTO model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest("Registration parameters invalid.");
             }
 
-            var userExists = _userManager.FindByNameAsync(model.Username).GetAwaiter().GetResult();
+            var userExists = await _userManager.FindByNameAsync(model.Username);
             if (userExists != null)
             {
                 return BadRequest("User already exists");
@@ -120,16 +120,16 @@ namespace FirstRealApp.Controllers
 
             };
 
-            var result = _userManager.CreateAsync(user, model.Password).GetAwaiter().GetResult();
+            var result = await _userManager.CreateAsync(user, model.Password);
 
             if (!_roleManager.RoleExistsAsync(UserRole.User).GetAwaiter().GetResult())
             {
-                _roleManager.CreateAsync(new IdentityRole(UserRole.User)).GetAwaiter().GetResult();
+                await _roleManager.CreateAsync(new IdentityRole(UserRole.User));
             }
 
             if (_roleManager.RoleExistsAsync(UserRole.User).GetAwaiter().GetResult())
             {
-                _userManager.AddToRoleAsync(user, UserRole.User).GetAwaiter().GetResult();
+                await _userManager.AddToRoleAsync(user, UserRole.User);
             }
 
             if (!result.Succeeded)
@@ -145,17 +145,17 @@ namespace FirstRealApp.Controllers
         [HttpPost]
         [Route("change-password")]
         //change password endpoint
-        public IActionResult ChangePassword([FromBody] PasswordChangeDTO model)
+        public async Task<ActionResult> ChangePassword([FromBody] PasswordChangeDTO model)
         {
 
 
-            var user = _userManager.FindByNameAsync(model.Username).GetAwaiter().GetResult();
+            var user = await _userManager.FindByNameAsync(model.Username);
             if (user == null)
             {
                 return NotFound("user doesnt exist");
             }
 
-            var currentPassword = _userManager.CheckPasswordAsync(user, model.CurrentPassword).GetAwaiter().GetResult();
+            var currentPassword = await _userManager.CheckPasswordAsync(user, model.CurrentPassword);
 
             if (currentPassword == false || model.NewPassword == null)
             {
@@ -171,7 +171,7 @@ namespace FirstRealApp.Controllers
 
             if (!result.Succeeded)
             {
-                return StatusCode(StatusCodes.Status400BadRequest, "error123");
+                return StatusCode(StatusCodes.Status400BadRequest, "Operation failed, bad request");
             }
 
             return Ok(result);
@@ -180,9 +180,9 @@ namespace FirstRealApp.Controllers
         //controller to sign out active user 
         [HttpGet]
         [Route("logout")]
-        public IActionResult Logout()
+        public async Task<ActionResult> Logout()
         {
-            signInManager.SignOutAsync().GetAwaiter().GetResult();
+            await signInManager.SignOutAsync();
             return Ok();
         }
 
