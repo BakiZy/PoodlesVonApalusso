@@ -17,7 +17,7 @@ ConfigurationManager configuration = builder.Configuration;
 // Add services to the container.
 
 //for entity framework
-builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("AppConnectionString")));
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("LocalConnectionString")));
 
 //for identity 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
