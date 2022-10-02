@@ -3,7 +3,7 @@ using FirstRealApp.Models.PoodleEntity;
 
 namespace FirstRealApp.Services
 {
-    public interface IPoodleService
+    public interface IFilterService
     {
    
         public IQueryable<Poodle> FilterSizeAndColor(string size, string color);

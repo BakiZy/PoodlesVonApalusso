@@ -4,7 +4,7 @@ namespace FirstRealApp.Services
 {
     public interface IPoodlesRepository
     {
-        public IQueryable<Poodle> GetAll();
+        public IQueryable<Poodle> GetAllPoodles();
 
         public IQueryable<PoodleSize> GetAllSizes();
 

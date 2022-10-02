@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using FirstRealApp.Interfaces;
 using FirstRealApp.Models.DTO_models.FilterDTOS;
 using FirstRealApp.Models.DTO_models.PoodleDTos;
 using FirstRealApp.Services;
