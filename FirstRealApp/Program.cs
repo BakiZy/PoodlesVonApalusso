@@ -4,7 +4,6 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using System.Text;
-using FirstRealApp.Interfaces;
 using FirstRealApp.Repository;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.OpenApi.Models;
