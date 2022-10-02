@@ -35,14 +35,14 @@ namespace FirstRealApp.Controllers
         [HttpPost]
         [Route("register-admin")]
         //endpoint for registering admin role only 
-        public IActionResult RegisterAdmin([FromBody] RegisterDTO model)
+        public async Task<ActionResult> RegisterAdmin([FromBody] RegisterDTO model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest("Registration parameters invalid.");
             }
 
-            var userExists = _userManager.FindByNameAsync(model.Username).GetAwaiter().GetResult();
+            var userExists = await _userManager.FindByNameAsync(model.Username);
 
             if (userExists != null)
             {
@@ -60,22 +60,22 @@ namespace FirstRealApp.Controllers
 
             };
 
-            var result = _userManager.CreateAsync(user, model.Password).GetAwaiter().GetResult();
+            var result = await _userManager.CreateAsync(user, model.Password);
 
             if (!result.Succeeded)
             {
                 return BadRequest("user creation failed");
             }
 
-            if (!_roleManager.RoleExistsAsync(UserRole.Admin).GetAwaiter().GetResult())
+            if ( !_roleManager.RoleExistsAsync(UserRole.Admin).GetAwaiter().GetResult())
             {
-                _roleManager.CreateAsync(new IdentityRole(UserRole.Admin)).GetAwaiter().GetResult();
+                await _roleManager.CreateAsync(new IdentityRole(UserRole.Admin));
 
             }
 
             if (_roleManager.RoleExistsAsync(UserRole.Admin).GetAwaiter().GetResult())
             {
-                _userManager.AddToRoleAsync(user, UserRole.Admin).GetAwaiter().GetResult();
+                await _userManager.AddToRoleAsync(user, UserRole.Admin);
             }
 
             return Ok(result);
@@ -106,18 +106,10 @@ namespace FirstRealApp.Controllers
 
 
         [HttpGet]
-        [Route("allroles")]
-        public IActionResult ListRoles()
-        {
-            var roles = _roleManager.Roles;
-            return Ok(roles);
-        }
-
-        [HttpGet]
         [Route("list-users")]
-        public IActionResult ListAllUsers()
+        public async Task<ActionResult> ListAllUsers()
         {
-            var users = _userManager.GetUsersInRoleAsync(UserRole.User).GetAwaiter().GetResult();
+            var users = await _userManager.GetUsersInRoleAsync(UserRole.User);
 
             return Ok(users);
         }
@@ -125,9 +117,9 @@ namespace FirstRealApp.Controllers
         [HttpGet]
         [Route("list-admins")]
 
-        public IActionResult ListAllAdmins()
+        public async Task<ActionResult> ListAllAdmins()
         {
-            var admins = _userManager.GetUsersInRoleAsync(UserRole.Admin).GetAwaiter().GetResult();
+            var admins = await _userManager.GetUsersInRoleAsync(UserRole.Admin);
 
             return Ok(admins);
         }
@@ -148,15 +140,15 @@ namespace FirstRealApp.Controllers
         [HttpDelete]
         [Route("/api/user/{id}")]
 
-        public IActionResult DeleteUser(string id)
+        public async Task<ActionResult> DeleteUser(string id)
         {
-            var user = _userManager.FindByIdAsync(id).GetAwaiter().GetResult();
+            var user = await _userManager.FindByIdAsync(id);
             if (user == null)
             {
                 return BadRequest();
             }
 
-            _userManager.DeleteAsync(user).GetAwaiter().GetResult();
+            await _userManager.DeleteAsync(user);
 
             return NoContent();
 
