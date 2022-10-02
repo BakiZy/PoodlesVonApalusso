@@ -167,7 +167,7 @@ namespace FirstRealApp.Controllers
                 return StatusCode(StatusCodes.Status406NotAcceptable, "passwords cant be empty and must match each other");
             }
 
-            var result = _userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword).GetAwaiter().GetResult();
+            var result = await _userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
 
             if (!result.Succeeded)
             {

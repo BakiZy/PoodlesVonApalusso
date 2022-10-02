@@ -1,6 +1,6 @@
-﻿using FirstRealApp.Interfaces;
-using FirstRealApp.Models;
+﻿using FirstRealApp.Models;
 using FirstRealApp.Models.PoodleEntity;
+using FirstRealApp.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace FirstRealApp.Repository

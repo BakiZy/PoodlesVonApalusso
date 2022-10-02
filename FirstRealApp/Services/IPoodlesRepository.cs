@@ -1,6 +1,6 @@
 ﻿using FirstRealApp.Models.PoodleEntity;
 
-namespace FirstRealApp.Interfaces
+namespace FirstRealApp.Services
 {
     public interface IPoodlesRepository
     {
@@ -16,7 +16,7 @@ namespace FirstRealApp.Interfaces
 
         void Delete(Poodle poodle);
 
-        
+
 
 
     }

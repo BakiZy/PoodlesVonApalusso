@@ -104,7 +104,7 @@ builder.Services.AddSwaggerGen(c => {
 });
 builder.Services.AddScoped<IPoodlesRepository, PoodlesRepository>();
 builder.Services.AddScoped<IPoodleColorsRepository, PoodleColorsRepository>();
-builder.Services.AddScoped<IPoodleService, PoodleService>();
+builder.Services.AddScoped<IFilterService, FilterService>();
 builder.Services.AddScoped<IImagesRepository, ImagesRepository>();
 builder.Services.AddAutoMapper(typeof(PoodleProfile));
 
