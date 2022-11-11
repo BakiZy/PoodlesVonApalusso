@@ -50,7 +50,8 @@ namespace FirstRealApp.Models
                 new PoodleColor() { Id = 4, Name = "Gray" },
                 new PoodleColor() { Id = 5, Name = "Apricot" },
                 new PoodleColor() { Id = 6, Name = "Red" },
-                new PoodleColor() { Id = 7, Name = "Black and tan" }
+                new PoodleColor() { Id = 7, Name = "Black and tan" },
+                new PoodleColor() { Id = 8, Name = "Harelquin"}
                 );
 
 

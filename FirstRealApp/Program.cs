@@ -8,6 +8,7 @@ using FirstRealApp.Repository;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.OpenApi.Models;
 using FirstRealApp.Services;
+using Microsoft.Net.Http.Headers;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
@@ -16,7 +17,15 @@ ConfigurationManager configuration = builder.Configuration;
 // Add services to the container.
 
 //for entity framework
-builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("LocalConnectionString")));
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("LocalConnectionString")));
+
+}
+
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("AppConnectionString")));
+
+
 
 //for identity 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -59,22 +68,60 @@ builder.Services.AddAuthorization(options =>
 });
 
 
-
-
-
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(
         builder =>
         {
-            builder.WithOrigins("*").AllowAnyHeader().AllowAnyMethod();
+            builder.WithOrigins(
+                    "http://localhost:3000",
+                    "https://localhost:3000",
+                    "https://localhost:5000",
+                    "http://localhost:5000",
+                    "https://localhost:44373",
+                    "http://localhost:44373",
+                    "https://poodlesvonapalusso.xyz",
+                    "https://poodlesvonapalusso.dog",
+                    "https://api.poodlesvonapalusso.dog",
+                    "http://www.poodlesvonapalusso.dog",
+                    "http://www.poodlesvonapalusso.xyz",
+                    "https://www.poodlesvonapalusso.dog",
+                    "https://www.poodlesvonapalusso.xyz",
+                    "http://www.web.skenit.com",
+                    "https://vonapalusso.netlify.app",
+                    "http://www.vonapalusso.netlify.app",
+                    "https://armando.ns.cloudflare.comm",
+                    "https://katja.ns.cloudflare.com",
+                    "https://win5232.site4now.net",
+                    "https://api.imgur.com/",
+                    "https://imgur.com",
+                    "https://i.imgur.com",
+                     "http://imgur.com",
+                    "http://i.imgur.com",
+                    "http://bakisan-001-site1.ctempurl.com",
+                    "https://bakisan-001-site1.ctempurl.com/",
+                    "https://dns1.p02.nsone.net",
+                    "https://dns2.p02.nsone.net",
+                    "https://dns3.p02.nsone.net",
+                    "https://dns4.p02.nsone.net",
+                    "https://win5232.site4now.net:8172/MsDeploy.axd?site=bakisan-001-site1")
+                .AllowAnyHeader()
+                .AllowCredentials()
+                .AllowAnyMethod();
         });
 
+    /*  options.AddDefaultPolicy(
+
+          builder =>
+          {
+              builder.WithOrigins("*").AllowAnyHeader().AllowAnyHeader();
+          });*/
 });
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c => {
+builder.Services.AddSwaggerGen(c =>
+{
     c.SwaggerDoc("v1", new OpenApiInfo
     {
         Title = "Poodle CRUD api with authorization and authentication",
@@ -120,7 +167,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseCors();
+app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod());
 
 app.UseAuthentication();
 app.UseAuthorization();
@@ -133,3 +180,4 @@ app.UseEndpoints(endpoints =>
    });
 
 app.Run();
+

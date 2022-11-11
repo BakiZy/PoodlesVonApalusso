@@ -28,7 +28,7 @@ namespace FirstRealApp.Controllers
 
         public IActionResult FilterSizeAndCollor([FromQuery] FilterPoodleDTO filter)
         {
-            return Ok(poodleService.FilterSizeAndColor(filter.SizeName, filter.ColorName).ProjectTo<PoodleDTO>(_mapper.ConfigurationProvider).ToList());
+            return Ok(poodleService.FilterSizeAndColor(filter.SizeName , filter.ColorName).ProjectTo<PoodleDTO>(_mapper.ConfigurationProvider).ToList());
         }
 
         [HttpGet]
