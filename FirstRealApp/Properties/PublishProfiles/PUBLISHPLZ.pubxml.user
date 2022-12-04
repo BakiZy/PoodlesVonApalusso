@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword />
+    <History>True|2022-12-04T16:56:49.4220716Z;True|2022-12-04T17:50:40.6405405+01:00;True|2022-11-12T19:47:08.6739402+01:00;True|2022-11-12T19:44:36.3098475+01:00;False|2022-11-12T19:44:24.5124695+01:00;True|2022-11-12T19:42:44.9475946+01:00;True|2022-11-12T19:40:09.4852398+01:00;True|2022-11-12T00:16:16.6001613+01:00;True|2022-11-12T00:01:05.8361423+01:00;True|2022-11-11T23:52:10.8374934+01:00;True|2022-11-11T23:29:06.5319131+01:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="AppConnectionString">
+      <Value>Data Source=SQL5063.site4now.net%3bInitial Catalog=db_a8bd3a_bakisan%3bUser Id=db_a8bd3a_bakisan_admin%3bPassword=adminFTW88!</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="LocalConnectionString">
+      <Value>Data Source=%28localdb%29\\MSSQLLocalDB%3bInitial Catalog=MyKennelDBZ%3bIntegrated Security=True%3bConnect Timeout=30%3bEncrypt=False%3bTrustServerCertificate=False%3bApplicationIntent=ReadWrite%3bMultiSubnetFailover=False</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

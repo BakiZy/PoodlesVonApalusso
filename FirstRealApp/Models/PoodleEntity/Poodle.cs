@@ -1,6 +1,7 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace FirstRealApp.Models.PoodleEntity
 {
@@ -15,6 +16,7 @@ namespace FirstRealApp.Models.PoodleEntity
         public DateTime DateOfBirth { get; set; }
 
         public string? Sex { get; set; }
+
         [Required]
         public bool? GeneticTests { get; set; }
 
@@ -31,7 +33,9 @@ namespace FirstRealApp.Models.PoodleEntity
 
         public int? ImageId { get; set; }
 
+        [AllowNull]
         public Image? Image { get; set; }
+
 
 
 

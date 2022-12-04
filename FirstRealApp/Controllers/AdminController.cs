@@ -2,6 +2,7 @@
 using FirstRealApp.Models.DTO_models;
 using FirstRealApp.Models.DTO_models.AdminDTO;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FirstRealApp.Controllers
 {
+   
     [Authorize(Roles ="Admin")]
     [ApiController]
     [Route("api/[controller]")]
