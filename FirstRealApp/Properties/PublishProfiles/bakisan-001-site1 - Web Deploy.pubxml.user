@@ -6,13 +6,8 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project>
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAw5XbCFZI1keYc7c7EutHCwAAAAACAAAAAAAQZgAAAAEAACAAAACOeG3knR9qBNvbqF40KGKDy7Y8hcUqGO5azjw7cVOJEwAAAAAOgAAAAAIAACAAAAAsIlt5NqxN7Ybh6JBgIZb/7ipJwZZVUxRsokzW4ltPXiAAAABNQuOZWNdCy38GBXTeboR0aFElCzEoKJqNn60eptrRXkAAAABfq9V3XVDd2mUsnEKwhSaZtpJItkjsYnKwMWHRvmf7sLS2BdO/MRtwWQAA5LKtiyaxc8AIA33EIN4mSz/TUpeo</EncryptedPassword>
-    <History>False|2022-11-11T22:28:24.3077890Z;True|2022-11-07T17:16:12.0621768+01:00;True|2022-11-06T22:52:25.2151850+01:00;True|2022-11-06T21:03:16.1817101+01:00;True|2022-09-21T07:34:27.6425671+02:00;False|2022-09-21T07:33:55.1031746+02:00;False|2022-09-21T07:33:07.9178911+02:00;False|2022-09-20T23:27:54.0276041+02:00;False|2022-09-20T23:25:26.9414305+02:00;</History>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAT6A7YqJWZEuw+Kn7WlxNcAAAAAACAAAAAAAQZgAAAAEAACAAAABiqxGi4nphFdXbovi7zu2Sjoe9lZxKX0T2plKXvzAHlQAAAAAOgAAAAAIAACAAAAC+PSUY9apbjcqgogl9IUtq+Zd7iEzZ4x5/eI0KKTugOyAAAAA1vYvsyHVy9JlHZ7XYUxV226MqdxwZ5JfnyEWpnIs0+kAAAABCjdjTyMuZyF0HrVPjbsXh1gR6TzCJuEpxmIVbmIYG7ZxWQPxVlsyYXYbGPGuF4NvZV16VZsPBhFe9JFY0T+9e</EncryptedPassword>
+    <History>True|2022-12-04T18:03:05.0134930Z;True|2022-12-04T18:54:37.4148061+01:00;True|2022-12-04T18:45:42.8271927+01:00;True|2022-12-04T18:35:29.3250930+01:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
-  <ItemGroup>
-    <DestinationConnectionStrings Include="AppConnectionString">
-      <Value>Data Source=SQL5107.site4now.net%3bInitial Catalog=db_a8bd3a_vonapalusso%3bPassword=adminFTW88!</Value>
-    </DestinationConnectionStrings>
-  </ItemGroup>
 </Project>

@@ -68,37 +68,42 @@ builder.Services.AddAuthorization(options =>
 });
 
 
-builder.Services.AddCors(options =>
+/*builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(
         builder =>
         {
-            builder.WithOrigins(
-                    "http://localhost:3000",
-                    "https://localhost:3000",
-                    "https://localhost:5000",
-                    "http://localhost:5000",
+            builder.
+                    WithOrigins(
+                    "http://localhost:3000/",
+                    "https://localhost:3000/",
+                    "https://localhost:5000/",
+                    "http://localhost:5000/",
                     "https://localhost:44373",
                     "http://localhost:44373",
                     "https://poodlesvonapalusso.xyz",
                     "https://poodlesvonapalusso.dog",
-                    "https://api.poodlesvonapalusso.dog",
-                    "http://www.poodlesvonapalusso.dog",
-                    "http://www.poodlesvonapalusso.xyz",
-                    "https://www.poodlesvonapalusso.dog",
-                    "https://www.poodlesvonapalusso.xyz",
-                    "http://www.web.skenit.com",
+                    "https://poodlesvonapalusso.dog/api/",
+                    "https://api.poodlesvonapalusso.dog/",
+                    "https://api.poodlesvonapalusso.dog/api/poodles",
+                    "http://www.poodlesvonapalusso.dog/api/poodles",
+                    "http://www.poodlesvonapalusso.dog/api",
+                    "http://www.poodlesvonapalusso.xyz/",
+                    "https://www.poodlesvonapalusso.dog/",
+                    "https://www.poodlesvonapalusso.xyz/",
                     "https://vonapalusso.netlify.app",
                     "http://www.vonapalusso.netlify.app",
                     "https://armando.ns.cloudflare.comm",
+                    "https://poodlesvonapalusso.xyz/poodles/1",
+                     "https://poodlesvonapalusso.dog/poodles/1",
                     "https://katja.ns.cloudflare.com",
-                    "https://win5232.site4now.net",
+                    "https://win5232.site4now.net/",
                     "https://api.imgur.com/",
-                    "https://imgur.com",
-                    "https://i.imgur.com",
-                     "http://imgur.com",
-                    "http://i.imgur.com",
-                    "http://bakisan-001-site1.ctempurl.com",
+                    "https://imgur.com/",
+                    "https://i.imgur.com/",
+                     "http://imgur.com/",
+                    "http://i.imgur.com/",
+                    "http://bakisan-001-site1.ctempurl.com/",
                     "https://bakisan-001-site1.ctempurl.com/",
                     "https://dns1.p02.nsone.net",
                     "https://dns2.p02.nsone.net",
@@ -110,13 +115,25 @@ builder.Services.AddCors(options =>
                 .AllowAnyMethod();
         });
 
-    /*  options.AddDefaultPolicy(
+    *//*  options.AddDefaultPolicy(
 
           builder =>
           {
               builder.WithOrigins("*").AllowAnyHeader().AllowAnyHeader();
-          });*/
+          });*//*
+});*/
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy( builder =>
+    {
+        builder.WithOrigins().AllowAnyMethod().AllowAnyHeader().SetIsOriginAllowed(origin => true) // allow any origin
+       .AllowCredentials().Build();
+
+        builder.AllowCredentials().Build();
+    });
 });
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -167,7 +184,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod());
+app.UseCors();
 
 app.UseAuthentication();
 app.UseAuthorization();

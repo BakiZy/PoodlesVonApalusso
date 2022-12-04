@@ -36,8 +36,6 @@ namespace FirstRealApp.Models.PoodleEntity
         [AllowNull]
         public Image? Image { get; set; }
 
-        [AllowNull]
-        public Poodle? Puppies { get; set; }
 
 
 
